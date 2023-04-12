@@ -1,0 +1,13 @@
+---
+- hosts: rocky
+  name: Install HTTPD server and Start Apache Service
+  become: root
+  tasks:
+  - name: Installing Apache
+    yum:
+      name: httpd
+      state: removed
+  - name: Starting Apache
+    service:
+      name: httpd
+      state: stopped
