@@ -50,8 +50,6 @@ pipeline {
                     git config user.name "Rajesh Kumar Ramesh"
                     BUILD_NUMBER=${BUILD_NUMBER}
                     ls -ltrh
-                    git checkout main
-                    ls -ltrh
                     git status
                     // sed -i "s/replaceImageTag/${BUILD_NUMBER}/g" rockyappsdeployment/deployment.yml
                     sed -i -r "s/ultimate-cicd(.+)/ultimate-cicd:${BUILD_NUMBER}/g" rockyappsdeployment/deployment.yml
