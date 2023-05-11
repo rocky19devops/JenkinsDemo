@@ -51,6 +51,7 @@ pipeline {
                     BUILD_NUMBER=${BUILD_NUMBER}
                     ls -ltrh
                     git checkout main
+                    ls -ltrh
                     git status
                     sed -i "s/replaceImageTag/${BUILD_NUMBER}/g" rockyappsdeployment/deployment.yml
                     git add rockyappsdeployment/deployment.yml -v
