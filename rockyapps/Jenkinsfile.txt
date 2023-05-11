@@ -16,7 +16,7 @@ pipeline {
       steps {
         sh 'ls -ltr'
         // build the project and create a JAR file
-        sh 'cd rockyapp && mvn clean package'
+        sh 'cd rockyapps && mvn clean package'
       }
     }
     stage('Build and Push Docker Image') {
@@ -47,6 +47,7 @@ pipeline {
                     git config user.email "rajesh19.soft@gmail.com"
                     git config user.name "Rajesh Kumar Ramesh"
                     BUILD_NUMBER=${BUILD_NUMBER}
+                    ls -ltrh
                     sed -i "s/replaceImageTag/${BUILD_NUMBER}/g" rockyappsdeployment/deployment.yml
                     git add rockyappsdeployment/deployment.yml
                     git commit -m "Update deployment image to version ${BUILD_NUMBER}"
