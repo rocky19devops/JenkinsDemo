@@ -49,9 +49,9 @@ pipeline {
                     git config user.email "rajesh19.soft@gmail.com"
                     git config user.name "Rajesh Kumar Ramesh"
                     BUILD_NUMBER=${BUILD_NUMBER}
+                    git clean -xdf
                     sed -i "s/replaceImageTag/${BUILD_NUMBER}/g" rockyappdeployment/deployment.yml
                     git add rockyappdeployment/deployment.yml
-                    git clean -xdf
                     git commit -m "Update deployment image to version ${BUILD_NUMBER}"
                     git push https://${GITHUB_TOKEN}@github.com/${GIT_USER_NAME}/${GIT_REPO_NAME} HEAD:main
                 '''
