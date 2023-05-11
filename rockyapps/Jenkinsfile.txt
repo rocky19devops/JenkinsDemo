@@ -50,6 +50,8 @@ pipeline {
                     git config user.name "Rajesh Kumar Ramesh"
                     BUILD_NUMBER=${BUILD_NUMBER}
                     ls -ltrh
+                    git checkout main
+                    git status
                     sed -i "s/replaceImageTag/${BUILD_NUMBER}/g" rockyappsdeployment/deployment.yml
                     git add rockyappsdeployment/deployment.yml -v
                     git commit . -m "Update deployment image to version ${BUILD_NUMBER}" -v
