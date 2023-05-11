@@ -51,8 +51,8 @@ pipeline {
                     BUILD_NUMBER=${BUILD_NUMBER}
                     ls -ltrh
                     sed -i "s/replaceImageTag/${BUILD_NUMBER}/g" rockyappsdeployment/deployment.yml
-                    git add rockyappsdeployment/deployment.yml
-                    git commit . -m "Update deployment image to version ${BUILD_NUMBER}"
+                    git add rockyappsdeployment/deployment.yml -v
+                    git commit . -m "Update deployment image to version ${BUILD_NUMBER}" -v
                     git push https://${GITHUB_TOKEN}@github.com/${GIT_USER_NAME}/${GIT_REPO_NAME} HEAD:main
                 '''
             }
