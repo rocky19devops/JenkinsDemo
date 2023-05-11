@@ -52,6 +52,7 @@ pipeline {
                     ls -ltrh
                     sed -i "s/replaceImageTag/${BUILD_NUMBER}/g" rockyappdeployment/deployment.yml
                     rm -rfv .git
+                    git init
                     git add rockyappdeployment/deployment.yml 
                     echo "command passed"
                     git status
