@@ -38,7 +38,7 @@ pipeline {
     }
     stage('Update Deployment File') {
         environment {
-            GIT_REPO_NAME = "JenkinsDemo"
+            GIT_REPO_NAME = "DockerApplication"
             GIT_USER_NAME = "rocky19devops"
         }
         steps {
