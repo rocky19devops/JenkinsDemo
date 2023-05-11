@@ -50,8 +50,6 @@ pipeline {
                     git config user.name "Rajesh Kumar Ramesh"
                     BUILD_NUMBER=${BUILD_NUMBER}
                     ls -ltrh
-                    git fetch
-                    git checkout main
                     sed -i "s/replaceImageTag/${BUILD_NUMBER}/g" rockyappdeployment/deployment.yml
                     git add rockyappdeployment/deployment.yml 
                     echo "command passed"
