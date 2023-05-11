@@ -52,7 +52,8 @@ pipeline {
                     ls -ltrh
                     git status
                     // sed -i "s/replaceImageTag/${BUILD_NUMBER}/g" rockyappsdeployment/deployment.yml
-                    sudo sed -i -r "s/ultimate-cicd(.+)/ultimate-cicd:${BUILD_NUMBER}/g" rockyappsdeployment/deployment.yml
+                    sed -i -r "s/ultimate-cicd(.+)/ultimate-cicd:${BUILD_NUMBER}/g" rockyappsdeployment/deployment.yml
+                    sleep 120
                     git status
                     git add rockyappsdeployment/deployment.yml -v
                     git status
