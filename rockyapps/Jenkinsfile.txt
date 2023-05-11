@@ -44,6 +44,7 @@ pipeline {
             GIT_USER_NAME = "rocky19devops"
         }
         steps {
+            git branch: 'main', url: 'https://github.com/rocky19devops/DockerApplication.git'
             withCredentials([string(credentialsId: 'github', variable: 'GITHUB_TOKEN')]) {
                 sh '''
                     git config user.email "rajesh19.soft@gmail.com"
@@ -51,7 +52,6 @@ pipeline {
                     BUILD_NUMBER=${BUILD_NUMBER}
                     ls -ltrh
                     git status
-                    git branch: 'main', url: 'https://github.com/rocky19devops/DockerApplication.git'
                     sed -i -r "s/ultimate-cicd(.+)/ultimate-cicd:${BUILD_NUMBER}/g" rockyappsdeployment/deployment.yml
                     git status
                     git add rockyappsdeployment/deployment.yml -v
