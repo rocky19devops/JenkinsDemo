@@ -25,7 +25,7 @@ pipeline {
     }
    stage('Testing the application') {
       steps {
-        sh 'curl -v http://$HOSTNAME:9090'
+        sh 'curl -v http://192.168.1.51:9090'
       }
     }
   }
