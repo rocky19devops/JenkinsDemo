@@ -18,5 +18,15 @@ pipeline {
         sh 'docker images'
       }
     }
+    stage('Deploy') {
+      steps {
+        sh 'docker run -it --name rockynewapps rockynewapps .'
+      }
+    }
+   stage('Testing the application') {
+      steps {
+        sh 'curl -v http://$HOSTNAME:9090'
+      }
+    }
   }
 }
