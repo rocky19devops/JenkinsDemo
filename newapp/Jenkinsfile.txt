@@ -14,8 +14,7 @@ pipeline {
     }
     stage('build') {
       steps {
-        sh 'cd newapp/newapp'
-        sh 'docker build -t rockynewapps:latest .'
+        sh 'cd newapp/newapp && docker build -t rockynewapps:latest .'
         sh 'docker images'
       }
     }
