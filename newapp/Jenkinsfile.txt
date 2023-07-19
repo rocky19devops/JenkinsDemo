@@ -20,7 +20,7 @@ pipeline {
     }
     stage('Deploy') {
       steps {
-        sh 'docker run -d rockynewapps -p 9090:9090'
+        sh 'docker run -d -p 9090:9090 rockynewapps'
       }
     }
    stage('Testing the application') {
