@@ -7,9 +7,16 @@ pipeline {
         //git branch: 'main', url: 'git@github.com:rocky19devops/JenkinsDemo.git'
       }
     }
-    stage('Build and Test') {
+    stage('Test contents') {
       steps {
         sh 'ls -ltrh'
+      }
+    }
+    stage('build') {
+      steps {
+        sh 'cd newapp/newapp'
+        sh 'docker build -t rockynewapps:latest .'
+        sh 'docker images'
       }
     }
   }
